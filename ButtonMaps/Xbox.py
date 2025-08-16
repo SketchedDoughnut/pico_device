@@ -20,21 +20,22 @@ class BUTTONS:
     PAD_LEFT = 14
     PAD_RIGHT = 15
 
-    button_list = [
-        BUTTONS.A,
-        BUTTONS.B,
-        BUTTONS.X,
-        BUTTONS.Y,
-        BUTTONS.LEFT_JOYSTICK,
-        BUTTONS.RIGHT_JOYSTICK,
-        BUTTONS.LeftTrigger,
-        BUTTONS.RightTrigger,
-        BUTTONS.LeftBumper,
-        BUTTONS.RightBumper,
-        BUTTONS.PAD_UP,
-        BUTTONS.PAD_DOWN,
-        BUTTONS.PAD_LEFT,
-        BUTTONS.PAD_RIGHT,
-        BUTTONS.VIEW_BACK,
-        BUTTONS.MENU_START
-    ]
+button_list = [
+    BUTTONS.A,
+    BUTTONS.B,
+    BUTTONS.X,
+    BUTTONS.Y,
+    BUTTONS.LEFT_JOYSTICK,
+    BUTTONS.RIGHT_JOYSTICK,
+    BUTTONS.LeftTrigger,
+    BUTTONS.RightTrigger,
+    BUTTONS.LeftBumper,
+    BUTTONS.RightBumper,
+    BUTTONS.PAD_UP,
+    BUTTONS.PAD_DOWN,
+    BUTTONS.PAD_LEFT,
+    BUTTONS.PAD_RIGHT,
+    BUTTONS.VIEW_BACK,
+    BUTTONS.MENU_START
+]
+
