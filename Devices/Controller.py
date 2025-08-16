@@ -3,7 +3,6 @@ Emulates a standard controller with 2 joysticks, bumpers, triggers, 8 buttons an
 '''
 
 import usb_hid
-import time
 
 ##################################################################################################
     
@@ -21,6 +20,9 @@ class ControllerInterface:
         self.rz = 0 # right y?
     
     def getGamepad(self) -> None:
+        '''
+        Gets the gamepad device established in boot.py.
+        '''
         for device in usb_hid.devices:
             if device.usage_page == 0x01 and device.usage == 0x05:  # Generic Desktop, Gamepad
                 self.gamepad = device
@@ -63,3 +65,4 @@ class ControllerInterface:
         report[5] = self.rz
         self.gamepad.send_report(report, 4)
         return
+
