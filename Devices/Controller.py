@@ -85,6 +85,7 @@ class ControllerInterface:
     def resetJoysticks(self):
         for key in self.js_map.keys():
             self.js_map[key] = 0
+        self.sendReport()
         return
         
     def resetButtons(self):
@@ -92,6 +93,7 @@ class ControllerInterface:
         Resets all of the buttons to off (0).
         '''
         self.buttons = 0
+        self.sendReport()
     
     def sendReport(self) -> None:
         '''
