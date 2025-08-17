@@ -48,7 +48,14 @@ class ControllerInterface:
         '''
         return self.buttons & (1 << button)
     
-    # TODO
+    def getJoystick(self, joystick: str) -> int:
+        '''
+        Gets the value of the inputted joystick.
+        '''
+        value = self.js_map[joystick]
+        if value >= 128 and value <= 255: value -= 255
+        return value
+        
     def setJoystick(self, joystick: str, value: int) -> None:
         '''
         Takes a value from -127 to 127 and moves the joystick respectively.
@@ -65,7 +72,6 @@ class ControllerInterface:
         self.js_map[joystick] = value
         return
     
-    # TODO
     def moveJoystickBy(self, joystick: str, value: int) -> None:
         '''
         Moves the joystick by the inputted amount, as opposed to fully setting it.
