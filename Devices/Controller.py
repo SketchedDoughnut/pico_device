@@ -12,13 +12,13 @@ class ControllerInterface:
         self.buttons = 0
         self.x = 'lx'
         self.y = 'ly'
-        self.z = 'rx'
-        self.rz = 'ry'
+        self.rx = 'rx'
+        self.ry = 'ry'
         self.js_map = {
             self.x: 0,
             self.y: 0,
-            self.z: 0,
-            self.rz: 0
+            self.rx: 0,
+            self.ry: 0
         }
     
     def getGamepad(self) -> None:
@@ -98,12 +98,18 @@ class ControllerInterface:
         Sends the report of the inputs to the connected device.
         '''
         report = bytearray(6)
+        
+        # buttons - 2 bytes
         report[0] = self.buttons & 0xFF        # low byte  (buttons 1–8)
         report[1] = (self.buttons >> 8) & 0xFF # high byte (buttons 9–16)
+        
+        # joysticks - 4 bytes
         report[2] = self.js_map[self.x]  # left X
         report[3] = self.js_map[self.y]  # left Y
-        report[4] = self.js_map[self.z]  # right X
-        report[5] = self.js_map[self.rz] # right Y
+        report[4] = self.js_map[self.rx]  # right X
+        report[5] = self.js_map[self.ry] # right Y
+        
+        # send report
         self.gamepad.send_report(report, 4)
         return
 
