@@ -15,8 +15,8 @@ class ControllerInterface:
         self.rx = 'rx'
         self.ry = 'ry'
         self.js_map = {
-            self.x: 0,
-            self.y: 0,
+            self.lx: 0,
+            self.ly: 0,
             self.rx: 0,
             self.ry: 0
         }
