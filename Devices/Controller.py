@@ -55,7 +55,14 @@ class ControllerInterface:
         value = self.js_map[joystick]
         if value >= 128 and value <= 255: value -= 255
         return value
-        
+    
+    def modelInput(val: float) -> int:
+        '''
+        Takes in a number from 0-1 as an input, and converts it to -127 to 127.
+        This just makes visualizing inputs easier, as opposed to doing the range from -127 to  127.
+        '''
+        return round(val * 127)
+    
     def moveJoystick(self, joystick: str, value: int) -> None:
         '''
         Takes a value from -127 to 127 and moves the joystick respectively.
@@ -114,4 +121,3 @@ class ControllerInterface:
         # send report
         self.gamepad.send_report(report, 4)
         return
-
